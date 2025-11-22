@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Activity 3 - Tailwind Form & Tabs</title>
+    <!-- Tailwind via CDN for easy editing. You can replace this with a build step later. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* A tiny helper for the demo (not Tailwind-managed) */
+      .pan-bg {
+        background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=60");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="max-w-3xl mx-auto py-12 px-4">
+      <header class="mb-6">
+        <h1 class="text-2xl font-semibold">
+          Form validation & Tabs (Tailwind)
+        </h1>
+        <p class="text-sm text-gray-600 mt-1">
+          This project uses Tailwind CDN so you can edit classes directly in the
+          HTML to change the design.
+        </p>
+      </header>
+
+      <main class="space-y-8">
+        <!-- Form -->
+        <section class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-lg font-medium mb-3">Contact form</h2>
+          <p class="text-sm text-gray-500 mb-4">
+            Submit with empty fields to see validation with red borders and
+            messages.
+          </p>
+
+          <form id="contact-form" novalidate class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700"
+                >Name</label
+              >
+              <input
+                id="name"
+                name="name"
+                data-required="true"
+                type="text"
+                placeholder="Your name"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              />
+              <p class="mt-1 text-sm text-red-600 hidden" data-for="name"></p>
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700"
+                >Email</label
+              >
+              <input
+                id="email"
+                name="email"
+                data-required="true"
+                type="email"
+                placeholder="you@example.com"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              />
+              <p class="mt-1 text-sm text-red-600 hidden" data-for="email"></p>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+              >
+                Submit
+              </button>
+              <span id="form-success" class="ml-3 text-sm text-green-600 hidden"
+                >Submitted!</span
+              >
+            </div>
+          </form>
+        </section>
+
+        <!-- Tabs -->
+        <section class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-lg font-medium mb-3">Information Tabs</h2>
+          <div class="flex gap-2 mb-4" role="tablist" aria-label="Example tabs">
+            <button
+              class="tab-btn px-3 py-1 rounded-md bg-indigo-600 text-white"
+              data-tab="tab1"
+              role="tab"
+              aria-selected="true"
+            >
+              Tab 1
+            </button>
+            <button
+              class="tab-btn px-3 py-1 rounded-md bg-gray-100 text-gray-700"
+              data-tab="tab2"
+              role="tab"
+              aria-selected="false"
+            >
+              Tab 2
+            </button>
+            <button
+              class="tab-btn px-3 py-1 rounded-md bg-gray-100 text-gray-700"
+              data-tab="tab3"
+              role="tab"
+              aria-selected="false"
+            >
+              Tab 3
+            </button>
+          </div>
+
+          <div
+            id="tab-content"
+            class="border border-gray-100 rounded-md p-4 bg-white"
+          >
+            <h3 id="tab-heading" class="text-md font-semibold">Tab 1</h3>
+            <div id="tab-body" class="mt-2 text-sm text-gray-700">
+              This is the default content for Tab 1.
+            </div>
+          </div>
+        </section>
+
+        <!-- Editable design example: panning background section -->
+        <section class="relative overflow-hidden rounded-lg">
+          <!-- You can edit the `pan-bg` class or replace with Tailwind utilities for background images or gradients -->
+          <div
+            class="pan-bg h-40 sm:h-56 md:h-72 flex items-center justify-center"
+          >
+            <div class="bg-black/40 text-white p-4 rounded">
+              Editable panning background example (change CSS or replace image
+              URL)
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mt-8 text-sm text-gray-500">
+        Open DevTools &gt; Elements and inspect the &lt;script&gt; tag at the
+        bottom to confirm <code>back.js</code> is loaded. Inspect examples at
+        <a
+          class="text-indigo-600"
+          href="https://lecarregavini.github.io/web-dev-1/pages/test.html"
+          target="_blank"
+          >the sandbox page</a
+        >.
+      </footer>
+    </div>
+
+    <!-- Back-end JS (UI behaviors). Keep this file minimal so it's easy to edit. -->
+    <script src="back.js"></script>
+  </body>
+</html>
